@@ -45,5 +45,6 @@ Employers can automate salaries, freelancers can get paid by the second, and bus
 ---
 
 ## 🧩 Architecture Diagram
-(Add your architecture.png in `/docs` folder)
+(Add your architectur<img width="1536" height="1024" alt="ChatGPT Image Nov 6, 2025, 02_01_10 PM" src="https://github.com/user-attachments/assets/472bd85c-9eee-4d73-ba7a-32de8839d863" />
+e.png in `/docs` folder)
 
