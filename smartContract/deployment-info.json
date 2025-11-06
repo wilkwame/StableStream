@@ -1,0 +1,16 @@
+{
+  "network": "arcTestnet",
+  "chainId": "5042002",
+  "deployer": "0xC4aC5014AbF29e205E15A53f71127Ac3793035E7",
+  "timestamp": "2025-11-06T13:10:20.785Z",
+  "contracts": {
+    "usdc": "0x3600000000000000000000000000000000000000",
+    "treasury": "0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759",
+    "platformTreasury": "0x6E97F0b70e31521F658d2225a898f7A7660BB3f2",
+    "streamFactory": "0xcF9C1CbB019d279911FDb46E2B5c0FEE2986851F"
+  },
+  "config": {
+    "platformFee": "0.5%",
+    "dailyWithdrawLimit": "$10,000"
+  }
+}
