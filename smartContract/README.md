@@ -142,9 +142,9 @@ npx hardhat run scripts/deploy.js --network arcTestnet
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| **Treasury** | `0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759` | USDC vault |
-| **PlatformTreasury** | `0x6E97F0b70e31521F658d2225a898f7A7660BB3f2` | Fee collection |
-| **StreamFactory** | `0xcF9C1CbB019d279911FDb46E2B5c0FEE2986851F` | Main entry point |
+| **Treasury** | `0x0Ff48CAed29E63B89D72283329DE81E91932E357` | USDC vault |
+| **PlatformTreasury** | `0x586224ccDAFeFd8901626e812D7662D4Ec2c43b1` | Fee collection |
+| **StreamFactory** | `0x2c72355ba178bf8a7Cd3557623b391104F4fBa5F` | Main entry point |
 | **USDC Token** | `0x3600000000000000000000000000000000000000` | Testnet USDC |
 
 ---

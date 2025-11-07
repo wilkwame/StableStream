@@ -2,12 +2,12 @@
   "network": "arcTestnet",
   "chainId": "5042002",
   "deployer": "0xC4aC5014AbF29e205E15A53f71127Ac3793035E7",
-  "timestamp": "2025-11-06T13:10:20.785Z",
+  "timestamp": "2025-11-07T16:08:38.456Z",
   "contracts": {
     "usdc": "0x3600000000000000000000000000000000000000",
-    "treasury": "0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759",
-    "platformTreasury": "0x6E97F0b70e31521F658d2225a898f7A7660BB3f2",
-    "streamFactory": "0xcF9C1CbB019d279911FDb46E2B5c0FEE2986851F"
+    "treasury": "0x0Ff48CAed29E63B89D72283329DE81E91932E357",
+    "platformTreasury": "0x586224ccDAFeFd8901626e812D7662D4Ec2c43b1",
+    "streamFactory": "0x2c72355ba178bf8a7Cd3557623b391104F4fBa5F"
   },
   "config": {
     "platformFee": "0.5%",

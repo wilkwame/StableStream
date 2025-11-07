@@ -2,9 +2,9 @@
 # StableStream Integration Guide
 
 ## Contract Addresses (arcTestnet)
-- StreamFactory: 0xcF9C1CbB019d279911FDb46E2B5c0FEE2986851F
-- Treasury: 0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759
-- PlatformTreasury: 0x6E97F0b70e31521F658d2225a898f7A7660BB3f2
+- StreamFactory: 0x2c72355ba178bf8a7Cd3557623b391104F4fBa5F
+- Treasury: 0x0Ff48CAed29E63B89D72283329DE81E91932E357
+- PlatformTreasury: 0x586224ccDAFeFd8901626e812D7662D4Ec2c43b1
 - USDC: 0x3600000000000000000000000000000000000000
 
 ## Quick Start for Frontend (Ethers v6)
@@ -14,13 +14,13 @@
 import { ethers } from 'ethers';
 
 const streamFactory = new ethers.Contract(
-  "0xcF9C1CbB019d279911FDb46E2B5c0FEE2986851F",
+  "0x2c72355ba178bf8a7Cd3557623b391104F4fBa5F",
   streamFactoryABI,
   signer
 );
 
 const treasury = new ethers.Contract(
-  "0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759",
+  "0x0Ff48CAed29E63B89D72283329DE81E91932E357",
   treasuryABI,
   signer
 );
@@ -29,7 +29,7 @@ const treasury = new ethers.Contract(
 ### 2. Deposit USDC
 ```javascript
 // First approve Treasury
-await usdc.approve("0x8Bc691b02669C92f0a355A95097ec3F4FAc2C759", ethers.MaxUint256);
+await usdc.approve("0x0Ff48CAed29E63B89D72283329DE81E91932E357", ethers.MaxUint256);
 
 // Then deposit
 const amount = ethers.parseUnits("1000", 6); // $1000

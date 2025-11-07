@@ -201,7 +201,7 @@ contract Treasury is ReentrancyGuard, AccessControl, Pausable {
         require(userBalances[owner] >= amount, "Insufficient balance");
         require(streamAllocations[streamId] == 0, "Stream already allocated");
         
-        userBalances[owner] -= amount;
+        //userBalances[owner] -= amount;
         lockedBalances[owner] += amount;
         streamAllocations[streamId] = amount;
         streamOwners[streamId] = owner;

@@ -72,6 +72,14 @@ async function main() {
   await platformTreasury.grantRole(FEE_COLLECTOR_ROLE, streamFactoryAddress);
   console.log("   ✅ StreamFactory can collect fees");
   
+  // CRITICAL: Allow StreamFactory to grant roles to PaymentStream contracts
+console.log("   → Granting DEFAULT_ADMIN_ROLE to StreamFactory...");
+await treasury.grantRole(
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  streamFactoryAddress
+);
+console.log("   ✅ StreamFactory is now Treasury admin");
+
   // ========================================
   // WAIT FOR CONFIRMATIONS
   // ========================================

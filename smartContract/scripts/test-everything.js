@@ -3,9 +3,9 @@ require('dotenv').config();
 
 // Your deployed contract addresses
 const ADDRESSES = {
-  treasury: "0x209Ddd8D9CfAbAAB3C56B27757C7794cA6FeC2D4",
-  platformTreasury: "0xD8A8eeEfa1D94c3B74c85Cd05728D41996d7420C",
-  streamFactory: "0xd052f28766bB140DEeA0E952c7965154a35605ca",
+  treasury: "0x0Ff48CAed29E63B89D72283329DE81E91932E357",
+  platformTreasury: "0x586224ccDAFeFd8901626e812D7662D4Ec2c43b1",
+  streamFactory: "0x2c72355ba178bf8a7Cd3557623b391104F4fBa5F",
   usdc: "0x3600000000000000000000000000000000000000"
 };
 
@@ -94,7 +94,7 @@ const employee2 = new hre.ethers.Wallet(process.env.EMPLOYEE2_PK, hre.ethers.pro
   console.log("TEST 3: Depositing to Treasury");
   console.log("=".repeat(60));
   
-  const depositAmount = hre.ethers.parseUnits("30", 6); // $30
+  const depositAmount = hre.ethers.parseUnits("5", 6); // $5
   console.log("   → Depositing", hre.ethers.formatUnits(depositAmount, 6), "USDC...");
   
   const depositTx = await treasury.deposit(depositAmount);
@@ -103,6 +103,8 @@ const employee2 = new hre.ethers.Wallet(process.env.EMPLOYEE2_PK, hre.ethers.pro
   const treasuryBalance = await treasury.userBalances(deployer.address);
   console.log("   ✅ Deposited successfully");
   console.log("   Treasury Balance:", hre.ethers.formatUnits(treasuryBalance, 6), "USDC");
+
+  const formatUSDC = (amount) => hre.ethers.formatUnits(amount, 6);
   
   // ========================================
   // TEST 4: Create Single Stream
@@ -112,14 +114,24 @@ const employee2 = new hre.ethers.Wallet(process.env.EMPLOYEE2_PK, hre.ethers.pro
   console.log("=".repeat(60));
   
   const amountPerSecond = hre.ethers.parseUnits("0.01", 6); // $0.01/second
-  const streamDeposit = hre.ethers.parseUnits("10", 6); // $10
+  const streamDeposit = hre.ethers.parseUnits("2", 6); // $10
   const duration = 0; // Indefinite
   
   console.log("   Employee:", employee1.address);
   console.log("   Rate: $0.01/second");
-  console.log("   Deposit: $10");
+  console.log("   Deposit: $2");
   console.log("   Duration: Indefinite");
   console.log("\n   → Creating stream...");
+  
+  console.log("--- DEBUG BEFORE CREATE STREAM ---");
+console.log("Treasury balance:", formatUSDC(await treasury.availableBalance(deployer.address)));
+console.log("Stream deposit:", formatUSDC(streamDeposit));
+console.log("Fee:", formatUSDC((streamDeposit * 50n) / 10000n));
+console.log("Total needed:", formatUSDC(streamDeposit + (streamDeposit * 50n) / 10000n));
+console.log("--- END DEBUG ---");
+
+console.log("   → Creating stream (will fail if revert)...");
+  
   
   const createTx = await streamFactory.createStream(
     employee1.address,
@@ -127,6 +139,10 @@ const employee2 = new hre.ethers.Wallet(process.env.EMPLOYEE2_PK, hre.ethers.pro
     streamDeposit,
     duration
   );
+  
+  await createTx.wait();
+  console.log("   Stream created!");
+
   
   const createReceipt = await createTx.wait();
   console.log("   ✅ Stream created!");
@@ -256,8 +272,8 @@ const employee2 = new hre.ethers.Wallet(process.env.EMPLOYEE2_PK, hre.ethers.pro
     hre.ethers.parseUnits("0.02", 6)
   ];
   const deposits = [
-    hre.ethers.parseUnits("5", 6),
-    hre.ethers.parseUnits("5", 6)
+    hre.ethers.parseUnits("1", 6),
+    hre.ethers.parseUnits("1", 6)
   ];
   const durations = [0, 0];
   
